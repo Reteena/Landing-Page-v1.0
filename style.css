@@ -73,6 +73,26 @@ body {
   border: 1.5px solid #844539;
   background: #fff7f4;
 }
+#email-input.error {
+  border: 1.5px solid #dc2626;
+  background: #fef2f2;
+}
+.error-message {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.error-message.show {
+  opacity: 1;
+}
+.input-container {
+  position: relative;
+}
 .waitlist-btn, .manifesto-btn {
   font-family: 'Instrument Serif', serif;
   font-size: 0.875rem;
@@ -124,6 +144,10 @@ body {
   width: 16px;
   height: 16px;
   stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .manifesto-btn::before {
   content: '';
