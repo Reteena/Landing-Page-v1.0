@@ -52,6 +52,9 @@ body {
   justify-content: center;
   margin-top: 1.7vw;
 }
+.input-container {
+  position: relative;
+}
 #email-input {
   font-family: 'Instrument Serif', serif;
   font-size: 1.1em;
@@ -86,12 +89,10 @@ body {
   margin-top: 0.25rem;
   opacity: 0;
   transition: opacity 0.2s ease;
+  white-space: nowrap;
 }
 .error-message.show {
   opacity: 1;
-}
-.input-container {
-  position: relative;
 }
 .waitlist-btn, .manifesto-btn {
   font-family: 'Instrument Serif', serif;
