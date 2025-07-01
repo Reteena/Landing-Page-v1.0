@@ -107,6 +107,12 @@ body {
   color: rgba(255, 255, 255, 0.9);
   position: relative;
   overflow: hidden;
+  gap: 0.5rem;
+}
+.manifesto-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
 }
 .manifesto-btn::before {
   content: '';
