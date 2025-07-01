@@ -14,14 +14,80 @@
       Memory Repository Platform for<br>
       Anybody Who Wants to Remember
     </div>
-    <form class="form-row" action="https://formsubmit.co/alex@reteena.org" method="POST" novalidate>
-      <input type="email" placeholder="name@email.com" id="email-input" name="email" required />
+    <form class="form-row" id="emailForm" novalidate>
+      <div class="input-container">
+        <input type="email" placeholder="name@email.com" id="email-input" name="email" required />
+        <div class="error-message" id="error-message"></div>
+      </div>
       <button class="waitlist-btn" type="submit">Join</button>
-      <button class="manifesto-btn" type="button" onclick="window.location='https://www.reteena.org/manifesto'">Manifesto</button>
+      <button class="manifesto-btn" type="button" onclick="window.location='https://www.reteena.org/manifesto'">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+        Manifesto
+      </button>
     </form>
   </main>
   <div class="footer-logo">
     <img src="logo.svg" />
   </div>
+
+  <script>
+    document.getElementById('emailForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const emailInput = document.getElementById('email-input');
+      const errorMessage = document.getElementById('error-message');
+      const email = emailInput.value.trim();
+      
+      // Clear previous error states
+      emailInput.classList.remove('error');
+      errorMessage.classList.remove('show');
+      
+      // Check if email is empty
+      if (!email) {
+        showError('Please enter your email address');
+        return;
+      }
+      
+      // Validate email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showError('Please enter a valid email address');
+        return;
+      }
+      
+      // If validation passes, submit to FormSubmit
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'https://formsubmit.co/alex@reteena.org';
+      form.style.display = 'none';
+      
+      const emailField = document.createElement('input');
+      emailField.type = 'email';
+      emailField.name = 'email';
+      emailField.value = email;
+      
+      form.appendChild(emailField);
+      document.body.appendChild(form);
+      form.submit();
+    });
+    
+    function showError(message) {
+      const emailInput = document.getElementById('email-input');
+      const errorMessage = document.getElementById('error-message');
+      
+      emailInput.classList.add('error');
+      errorMessage.textContent = message;
+      errorMessage.classList.add('show');
+    }
+    
+    // Clear error when user starts typing
+    document.getElementById('email-input').addEventListener('input', function() {
+      this.classList.remove('error');
+      document.getElementById('error-message').classList.remove('show');
+    });
+  </script>
 </body>
 </html>
