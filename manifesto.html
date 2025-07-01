@@ -1,216 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Instrument Serif', serif;
-  background: #f0f0f0;
-  min-height: 100vh;
-  line-height: 1.6;
-  position: relative;
-}
-
-/* Crumpled paper overlay */
-.paper-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('paper.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.3;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 60px 40px;
-  position: relative;
-  z-index: 2;
-}
-
-.content-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.text-section {
-  padding-right: 40px;
-}
-
-.title {
-  font-family: 'Instrument Serif', serif;
-  font-size: 4rem;
-  font-weight: 400;
-  color: #333;
-  margin-bottom: 60px;
-  line-height: 1.1;
-}
-
-.manifesto-text {
-  font-size: 1.125rem;
-  color: #444;
-  line-height: 1.8;
-}
-
-.manifesto-text p {
-  margin-bottom: 4px;
-}
-
-.manifesto-text br {
-  display: block;
-  margin: 16px 0;
-}
-
-.closing {
-  font-size: 1.25rem;
-  margin-top: 20px;
-  margin-bottom: 60px;
-}
-
-.back-to-main-btn {
-  font-family: 'Instrument Serif', serif;
-  font-size: 0.875rem;
-  font-weight: 500;
-  padding: 0.5rem 1.5rem;
-  border: 1px solid #2d1612;
-  cursor: pointer;
-  border-radius: 0.75rem;
-  background: linear-gradient(to bottom, #481e1c, #5a241f 79.91%, #6d2a24);
-  box-shadow: inset 0px -2px 2px 0.5px #000, inset 0px 0px 2px 1.5px rgba(255,255,255,0.20);
-  color: white;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-  transform-origin: center;
-}
-
-.back-to-main-btn svg {
-  width: 16px;
-  height: 16px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.back-to-main-btn:hover {
-  box-shadow: inset 0px -2px 5px 0px #000, inset 0px 0px 1px 1.5px rgba(255,255,255,0.20);
-  background: linear-gradient(to bottom, #5a241f, #6d2a24 79.91%, #7f3128);
-  text-decoration: none;
-}
-
-.back-to-main-btn:active {
-  transform: scale(0.95);
-}
-
-.back-to-main-btn:focus-visible {
-  outline: none;
-  box-shadow: inset 0px -2px 2px 0.5px #000, inset 0px 0px 2px 1.5px rgba(255,255,255,0.20), 0 0 0 1px rgba(255,255,255,0.5);
-}
-
-.image-section {
-  position: relative;
-  height: 100%;
-  display: flex;
-  align-items: stretch;
-}
-
-.manifesto-image {
-  width: 100%;
-  height: 100%;
-  min-height: 700px;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  object-fit: cover;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .container {
-    padding: 40px 30px;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manifesto - Try Remembrance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="manifesto.css">
+</head>
+<body>
+  <!-- Crumpled paper overlay -->
+  <div class="paper-overlay"></div>
   
-  .content-wrapper {
-    gap: 60px;
-  }
-  
-  .text-section {
-    padding-right: 20px;
-  }
-  
-  .title {
-    font-size: 3.5rem;
-  }
-  
-  .manifesto-image {
-    min-height: 580px;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 30px 20px;
-  }
-  
-  .content-wrapper {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .text-section {
-    padding-right: 0;
-  }
-  
-  .title {
-    font-size: 3rem;
-    margin-bottom: 40px;
-  }
-  
-  .manifesto-text {
-    font-size: 1.0625rem;
-  }
-  
-  .manifesto-image {
-    min-height: 480px;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 20px 16px;
-  }
-  
-  .title {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-  }
-  
-  .manifesto-text {
-    font-size: 1rem;
-  }
-  
-  .manifesto-text br {
-    margin: 12px 0;
-  }
-  
-  .manifesto-image {
-    min-height: 380px;
+  <div class="container">
+    <div class="content-wrapper">
+      <div class="text-section">
+        <h1 class="title">Manifesto</h1>
+        
+        <div class="manifesto-text">
+          <p>No one is just a patient.</p>
+          <p>They are a father who danced barefoot in the kitchen.</p>
+          <p>A mother who never forgot your birthday — until now.</p>
+          <p>A teacher, an artist, a friend, a life fully lived.</p>
+          <br>
+          <p>But Alzheimer's doesn't care about stories.</p>
+          <p>It erases slowly. Silently.</p>
+          <p>It takes names, places, voices —</p>
+          <p>until even the familiar becomes foreign.</p>
+          <br>
+          <p>We won't let that be the end.</p>
+          <br>
+          <p>At Reteena Remembrance,</p>
+          <p>we build technology that helps people hold on.</p>
+          <p>To their stories. Their laughter. Their humanity.</p>
+          <br>
+          <p>Through language models, memory graphs, and context-aware care,</p>
+          <p>we help piece together what disease tries to take apart.</p>
+          <br>
+          <p>Not as data.</p>
+          <p>But as moments.</p>
+          <p>As meaning.</p>
+          <p>As the thread that holds someone's life together.</p>
+          <br>
+          <p>We believe memory is more than recall.</p>
+          <p>It's identity.</p>
+          <p>And every identity is worth preserving.</p>
+          <br>
+          <p>For the ones still here.</p>
+          <p>For the ones slowly fading.</p>
+          <p>And for the families who love them through it all.</p>
+          <br>
+          <p class="closing"><strong>Because every story deserves to be remembered.</strong></p>
+          
+          <a href="https://reteena.github.io/Landing-Page-v1.0/" class="back-to-main-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+            Back to Main
+          </a>
+        </div>
+      </div>
+      <div class="image-section">
+        <img src="manifesto-image.jpg" alt="Memory moments" class="manifesto-image" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>
   }
 }
