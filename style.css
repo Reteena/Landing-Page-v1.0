@@ -78,12 +78,12 @@ body {
   font-size: 0.875rem;
   font-weight: 500;
   padding: 0.5rem 1.5rem;
-  border: 1px solid #2E2D2E;
+  border: 1px solid #2d1612;
   cursor: pointer;
   border-radius: 0.75rem;
   margin-right: .15em;
-  background: linear-gradient(to bottom, #3E3D3E, #403E40 79.91%, #5E5D5E);
-  box-shadow: inset 0px -2px 2px 0.5px #000, inset 0px 0px 2px 1.5px rgba(255,255,255,0.50);
+  background: linear-gradient(to bottom, #481e1c, #5a241f 79.91%, #6d2a24);
+  box-shadow: inset 0px -2px 2px 0.5px #000, inset 0px 0px 2px 1.5px rgba(255,255,255,0.20);
   color: white;
   display: inline-flex;
   align-items: center;
