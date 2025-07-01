@@ -95,6 +95,17 @@ body {
 .waitlist-btn {
   margin-right: 0.3em;
 }
+.waitlist-btn:hover {
+  box-shadow: inset 0px -2px 5px 0px #000, inset 0px 0px 1px 1.5px rgba(255,255,255,0.20);
+  background: linear-gradient(to bottom, #5a241f, #6d2a24 79.91%, #7f3128);
+}
+.waitlist-btn:active {
+  transform: scale(0.95);
+}
+.waitlist-btn:focus-visible {
+  outline: none;
+  box-shadow: inset 0px -2px 2px 0.5px #000, inset 0px 0px 2px 1.5px rgba(255,255,255,0.20), 0 0 0 1px rgba(255,255,255,0.5);
+}
 .manifesto-btn {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
