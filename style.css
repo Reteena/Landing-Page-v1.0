@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
-
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   width: 100vw;
 }
+
 body {
   font-family: 'Instrument Serif', serif;
   min-height: 100vh;
   width: 100vw;
-  background: url('background.png') no-repeat center center;
+  background: url('images/background.png') no-repeat center center;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -19,6 +19,7 @@ body {
   position: relative;
   overflow: hidden;
 }
+
 .overlay {
   position: absolute;
   top: 0; left: 0;
@@ -26,6 +27,7 @@ body {
   background: rgba(32,28,24,0.21);
   z-index: 1;
 }
+
 .center-container {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -35,6 +37,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .main-title {
   color: #fff;
   font-size: 5vw;
@@ -46,6 +49,7 @@ body {
   line-height: 1.1;
   text-shadow: 0 2px 26px rgba(0,0,0,.45);
 }
+
 .form-row {
   display: flex;
   gap: 0.75vw;
@@ -53,6 +57,7 @@ body {
   justify-content: center;
   margin-top: 1.7vw;
 }
+
 #email-input {
   font-family: 'Instrument Serif', serif;
   font-size: 1.1em;
@@ -70,10 +75,12 @@ body {
   box-shadow: 0 1.5px 0 rgba(0,0,0,0.01);
   transition: border .2s, background .2s;
 }
+
 #email-input:focus {
   border: 1.5px solid #844539;
   background: #fff7f4;
 }
+
 .waitlist-btn, .manifesto-btn {
   font-family: 'Instrument Serif', serif;
   font-size: 1.04em;
@@ -84,22 +91,27 @@ body {
   margin-right: .15em;
   transition: background 0.17s,color 0.17s;
 }
+
 .waitlist-btn {
   background: #481e1c;
   color: #fff;
   margin-right: 0.3em;
 }
+
 .waitlist-btn:hover {
   background: #74554b;
 }
+
 .manifesto-btn {
   background: #481e1c;
   color: #fff;
 }
+
 .manifesto-btn:hover {
   background: #7c3a30;
   color: #ffeede;
 }
+
 .footer-logo {
   position: fixed;
   bottom: 36px;
@@ -110,12 +122,14 @@ body {
   align-items: center;
   z-index: 10;
 }
+
 .footer-logo img, .footer-logo svg {
   height: 2.2em;
   margin-right: 0.5em;
   vertical-align: middle;
   display: inline-block;
 }
+
 .footer-logo .brand {
   color: #fff;
   font-family: 'Poppins', sans-serif;
@@ -124,9 +138,10 @@ body {
   letter-spacing: 0.009em;
   display: inline-block;
 }
+
 @media (max-width: 900px) {
   .main-title { font-size: 7.2vw; max-width: 97vw; }
   .center-container { min-height: 57vh; }
   .footer-logo { bottom: 12px; }
   #email-input { min-width: 130px; }
-}
+
