@@ -58,20 +58,22 @@
         return;
       }
       
-      // If validation passes, submit to FormSubmit
-      const form = document.createElement('form');
-      form.method = 'POST';
-      form.action = 'https://formsubmit.co/alex@reteena.org';
-      form.style.display = 'none';
+      // If validation passes, submit to FormSubmit in background
+      const formData = new FormData();
+      formData.append('email', email);
       
-      const emailField = document.createElement('input');
-      emailField.type = 'email';
-      emailField.name = 'email';
-      emailField.value = email;
-      
-      form.appendChild(emailField);
-      document.body.appendChild(form);
-      form.submit();
+      // Submit in background without redirect
+      fetch('https://formsubmit.co/alex@reteena.org', {
+        method: 'POST',
+        body: formData
+      }).then(response => {
+        // Show success message
+        showSuccess('Thank you! You\'ve been added to the waitlist.');
+        emailInput.value = ''; // Clear the input
+      }).catch(error => {
+        // Show error message if submission fails
+        showError('Something went wrong. Please try again.');
+      });
     });
     
     function showError(message) {
@@ -83,11 +85,30 @@
       errorMessage.classList.add('show');
     }
     
+    function showSuccess(message) {
+      const emailInput = document.getElementById('email-input');
+      const errorMessage = document.getElementById('error-message');
+      
+      emailInput.classList.remove('error');
+      errorMessage.textContent = message;
+      errorMessage.style.color = '#16a34a'; // Green color for success
+      errorMessage.classList.add('show');
+      
+      // Clear success message after 3 seconds
+      setTimeout(() => {
+        errorMessage.classList.remove('show');
+        errorMessage.style.color = '#dc2626'; // Reset to red for future errors
+      }, 3000);
+    }
+    
     // Clear error when user starts typing
     document.getElementById('email-input').addEventListener('input', function() {
       this.classList.remove('error');
       document.getElementById('error-message').classList.remove('show');
     });
+  </script>
+</body>
+</html>
   </script>
 </body>
 </html>
