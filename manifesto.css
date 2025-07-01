@@ -98,6 +98,7 @@ body {
   white-space: nowrap;
   transition: all 0.2s ease;
   transform-origin: center;
+  margin-top: 40px;
 }
 
 .back-to-main-btn svg {
