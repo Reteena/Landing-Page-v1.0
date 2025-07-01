@@ -75,29 +75,35 @@ body {
 }
 .waitlist-btn, .manifesto-btn {
   font-family: 'Instrument Serif', serif;
-  font-size: 1.04em;
-  padding: 0.37em 1.8em;
-  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #2E2D2E;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 0.75rem;
   margin-right: .15em;
-  transition: background 0.17s,color 0.17s;
+  background: linear-gradient(to bottom, #3E3D3E, #403E40 79.91%, #5E5D5E);
+  box-shadow: inset 0px -2px 2px 0.5px #000, inset 0px 0px 2px 1.5px rgba(255,255,255,0.50);
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  transform-origin: center;
 }
 .waitlist-btn {
-  background: #481e1c;
-  color: #fff;
   margin-right: 0.3em;
 }
-.waitlist-btn:hover {
-  background: #74554b;
+.waitlist-btn:hover, .manifesto-btn:hover {
+  box-shadow: inset 0px -2px 5px 0px #000, inset 0px 0px 1px 1.5px rgba(255,255,255,0.50);
 }
-.manifesto-btn {
-  background: #481e1c;
-  color: #fff;
+.waitlist-btn:active, .manifesto-btn:active {
+  transform: scale(0.95);
 }
-.manifesto-btn:hover {
-  background: #7c3a30;
-  color: #ffeede;
+.waitlist-btn:focus-visible, .manifesto-btn:focus-visible {
+  outline: none;
+  box-shadow: inset 0px -2px 2px 0.5px #000, inset 0px 0px 2px 1.5px rgba(255,255,255,0.50), 0 0 0 1px rgba(255,255,255,0.5);
 }
 .footer-logo {
   position: fixed;
