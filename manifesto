@@ -1,0 +1,2 @@
+<!-- Redirect /manifesto to /manifesto.html -->
+<meta http-equiv="refresh" content="0; url=manifesto.html" />
