@@ -127,21 +127,110 @@ body {
   outline: none;
   box-shadow: inset 0px -2px 2px 0.5px #000, inset 0px 0px 2px 1.5px rgba(255,255,255,0.20), 0 0 0 1px rgba(255,255,255,0.5);
 }
+
+/* Advanced Liquid Glass Effect */
 .manifesto-btn {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-  color: rgba(255, 255, 255, 0.9);
   position: relative;
   overflow: hidden;
   gap: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  isolation: isolate;
 }
-.manifesto-btn svg {
+
+.glass-surface {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0.75rem;
+  z-index: -1;
+  
+  /* Multi-layered glass effect */
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%),
+    linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.1) 100%),
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+  
+  /* Advanced backdrop blur */
+  backdrop-filter: blur(20px) saturate(180%) contrast(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%) contrast(120%);
+  
+  /* Complex border with liquid effect */
+  border: 1px solid;
+  border-image: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.05) 75%,
+    rgba(255, 255, 255, 0.35) 100%
+  ) 1;
+  
+  /* Advanced shadow system */
+  box-shadow: 
+    /* Outer glow */
+    0 0 30px rgba(255, 255, 255, 0.1),
+    /* Main shadow */
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    /* Inner highlights */
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 1px 0 0 rgba(255, 255, 255, 0.2),
+    inset -1px 0 0 rgba(255, 255, 255, 0.1),
+    /* Depth shadow */
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+  
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-surface::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: linear-gradient(45deg, 
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(255, 255, 255, 0.2) 45%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 60%
+  );
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.6s ease;
+}
+
+.glass-surface::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  opacity: 0.6;
+}
+
+.glass-content {
+  position: relative;
+  z-index: 1;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.glass-content svg {
   width: 16px;
   height: 16px;
   stroke: currentColor;
@@ -149,33 +238,70 @@ body {
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
+  transition: transform 0.3s ease;
 }
-.manifesto-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-.manifesto-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
+
+/* Hover Effects */
+.manifesto-btn:hover .glass-surface {
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.08) 100%),
+    linear-gradient(45deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.03) 50%, rgba(255, 255, 255, 0.15) 100%),
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+  
+  backdrop-filter: blur(25px) saturate(200%) contrast(130%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%) contrast(130%);
+  
   box-shadow: 
-    0 12px 40px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    0 0 40px rgba(255, 255, 255, 0.15),
+    0 12px 40px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15),
+    inset 1px 0 0 rgba(255, 255, 255, 0.3),
+    inset -1px 0 0 rgba(255, 255, 255, 0.15),
+    inset 0 0 30px rgba(255, 255, 255, 0.08);
+  
+  transform: translateY(-2px);
+}
+
+.manifesto-btn:hover .glass-surface::before {
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+.manifesto-btn:hover .glass-content {
   color: white;
-  transform: translateY(-1px);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
-.manifesto-btn:hover::before {
-  left: 100%;
+
+.manifesto-btn:hover .glass-content svg {
+  transform: scale(1.1) rotate(5deg);
 }
+
+/* Active state */
 .manifesto-btn:active {
-  transform: scale(0.98) translateY(0px);
+  transform: scale(0.98);
 }
+
+.manifesto-btn:active .glass-surface {
+  backdrop-filter: blur(15px) saturate(150%) contrast(110%);
+  -webkit-backdrop-filter: blur(15px) saturate(150%) contrast(110%);
+  transform: translateY(0px);
+}
+
+/* Focus state */
+.manifesto-btn:focus-visible .glass-surface {
+  box-shadow: 
+    0 0 0 2px rgba(255, 255, 255, 0.6),
+    0 0 40px rgba(255, 255, 255, 0.15),
+    0 12px 40px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15),
+    inset 1px 0 0 rgba(255, 255, 255, 0.3),
+    inset -1px 0 0 rgba(255, 255, 255, 0.15),
+    inset 0 0 30px rgba(255, 255, 255, 0.08);
+}
+
 .footer-logo {
   position: fixed;
   bottom: 36px;
