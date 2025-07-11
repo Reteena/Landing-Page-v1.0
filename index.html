@@ -58,21 +58,35 @@ if (!emailRegex.test(email)) {
 showError('Please enter a valid email address');
 return;
 }
-// If validation passes, submit to FormSubmit in background
+// If validation passes, submit to FormSubmit
 const formData = new FormData();
 formData.append('email', email);
-// Submit in background without redirect
-fetch('https://formsubmit.co/hello@reteena.org', {
-method: 'POST',
-body: formData
-}).then(response => {
-// Show success message
+formData.append('_next', window.location.href); // Redirect back to same page
+formData.append('_captcha', 'false'); // Disable captcha
+formData.append('_subject', 'New Remembrance Waitlist Signup');
+
+// Create a hidden form and submit it
+const hiddenForm = document.createElement('form');
+hiddenForm.action = 'https://formsubmit.co/hello@reteena.org';
+hiddenForm.method = 'POST';
+hiddenForm.style.display = 'none';
+
+// Add form data as hidden inputs
+for (let [key, value] of formData.entries()) {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = value;
+    hiddenForm.appendChild(input);
+}
+
+// Show success message immediately
 showSuccess('Thank you! You\'ve been added to the waitlist.');
 emailInput.value = ''; // Clear the input
-}).catch(error => {
-// Show error message if submission fails
-showError('Something went wrong. Please try again.');
-});
+
+// Submit the form
+document.body.appendChild(hiddenForm);
+hiddenForm.submit();
 });
 function showError(message) {
 const emailInput = document.getElementById('email-input');
